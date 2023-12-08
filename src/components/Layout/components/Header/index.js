@@ -28,6 +28,8 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -134,7 +136,7 @@ function Header() {
                                 content="Upload video" 
                                 placement='bottom'>
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon  />
                                 </button>
                             </Tippy>
                             {/* <button className={cx('action-btn')}>
@@ -149,8 +151,10 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img src="https://lh3.googleusercontent.com/ogw/ANLem4aB3mClsRajl4qVP80QX4eibU-xkK6gTXHJi3fNHQ=s32-c-mo" 
-                            className={cx('user-avatar')} alt=""  />
+                            <Image src="https://lh3.googleusercontent.com/ogw/ANLem4aB3mClsRajl4qVP80QX4eibU-xkK6gTXHJi3fNHQ=s32-c-mo" 
+                            className={cx('user-avatar')} alt="" 
+                            fallback="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/0a65bbc7f0e4616c7207706ba862e395~c5_100x100.jpeg?x-expires=1702224000&x-signature=oLlv8cUtmTI7z2NhYxZvbfb1r0s%3D" 
+                            />
                         ): (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
